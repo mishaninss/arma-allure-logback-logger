@@ -70,6 +70,14 @@ public class AllureSlf4jReporter implements IReporter{
     }
 
     @Override
+    public void trace(String msg, Object... args) {
+        LOGGER.trace(msg, args);
+        if (LOGGER.isTraceEnabled()){
+            allureStep(msg);
+        }
+    }
+
+    @Override
     public void trace(String msg, Throwable e) {
         LOGGER.trace(msg, e);
         if (LOGGER.isTraceEnabled()){
@@ -80,6 +88,14 @@ public class AllureSlf4jReporter implements IReporter{
     @Override
     public void debug(String msg) {
         LOGGER.debug(msg);
+        if (LOGGER.isDebugEnabled()){
+            allureStep(msg);
+        }
+    }
+
+    @Override
+    public void debug(String msg, Object... args) {
+        LOGGER.debug(msg, args);
         if (LOGGER.isDebugEnabled()){
             allureStep(msg);
         }
@@ -102,6 +118,14 @@ public class AllureSlf4jReporter implements IReporter{
     }
 
     @Override
+    public void info(String msg, Object... args) {
+        LOGGER.info(msg, args);
+        if (LOGGER.isInfoEnabled()) {
+            allureStep(msg);
+        }
+    }
+
+    @Override
     public void info(String msg, Throwable e) {
         LOGGER.info(msg, e);
         if (LOGGER.isInfoEnabled()) {
@@ -118,6 +142,14 @@ public class AllureSlf4jReporter implements IReporter{
     }
 
     @Override
+    public void warn(String msg, Object... args) {
+        LOGGER.warn(msg, args);
+        if (LOGGER.isWarnEnabled()) {
+            allureStep(msg);
+        }
+    }
+
+    @Override
     public void warn(String msg, Throwable e) {
         LOGGER.warn(msg, e);
         if (LOGGER.isWarnEnabled()) {
@@ -128,6 +160,14 @@ public class AllureSlf4jReporter implements IReporter{
     @Override
     public void error(String msg) {
         LOGGER.error(msg);
+        if (LOGGER.isErrorEnabled()) {
+            allureStep(msg);
+        }
+    }
+
+    @Override
+    public void error(String msg, Object... args) {
+        LOGGER.error(msg, args);
         if (LOGGER.isErrorEnabled()) {
             allureStep(msg);
         }
