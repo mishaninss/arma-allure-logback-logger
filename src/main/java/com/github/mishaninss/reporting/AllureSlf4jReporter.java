@@ -53,7 +53,6 @@ public class AllureSlf4jReporter implements IReporter{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -81,7 +80,7 @@ public class AllureSlf4jReporter implements IReporter{
     public void trace(String msg, Throwable e) {
         LOGGER.trace(msg, e);
         if (LOGGER.isTraceEnabled()){
-            allureStep(msg);
+            allureStep(msg + " " + e.getMessage());
         }
     }
 
@@ -105,7 +104,7 @@ public class AllureSlf4jReporter implements IReporter{
     public void debug(String msg, Throwable e) {
         LOGGER.debug(msg, e);
         if (LOGGER.isDebugEnabled()){
-            allureStep(msg);
+            allureStep(msg + " " + e.getMessage());
         }
     }
 
@@ -129,7 +128,7 @@ public class AllureSlf4jReporter implements IReporter{
     public void info(String msg, Throwable e) {
         LOGGER.info(msg, e);
         if (LOGGER.isInfoEnabled()) {
-            allureStep(msg);
+            allureStep(msg + " " + e.getMessage());
         }
     }
 
@@ -153,7 +152,7 @@ public class AllureSlf4jReporter implements IReporter{
     public void warn(String msg, Throwable e) {
         LOGGER.warn(msg, e);
         if (LOGGER.isWarnEnabled()) {
-            allureStep(msg);
+            allureStep(msg + " " + e.getMessage());
         }
     }
 
@@ -177,7 +176,7 @@ public class AllureSlf4jReporter implements IReporter{
     public void error(String msg, Throwable e) {
         LOGGER.error(msg, e);
         if (LOGGER.isErrorEnabled()) {
-            allureStep(msg);
+            allureStep(msg + " " + e.getMessage());
         }
     }
 
