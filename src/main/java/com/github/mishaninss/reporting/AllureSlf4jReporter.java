@@ -57,7 +57,7 @@ public class AllureSlf4jReporter implements IReporter{
 
     @Override
     public void attachText(String text, String msg) {
-        allureAttachment(text.getBytes(), msg, "");
+        allureAttachment(text.getBytes(), msg, "text/html");
     }
 
     @Override
