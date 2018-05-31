@@ -28,7 +28,12 @@ import java.io.IOException;
 
 @Component
 public class AllureSlf4jReporter implements IReporter{
-    private static final Logger LOGGER = LoggerFactory.getLogger(AllureSlf4jReporter.class);
+    private Logger logger = LoggerFactory.getLogger(AllureSlf4jReporter.class);
+
+    @Override
+    public void setReporterName(String reporterName) {
+        logger = LoggerFactory.getLogger(reporterName);
+    }
 
     @Override
     public void attachScreenshot(byte[] screenshot, String msg) {
@@ -62,120 +67,120 @@ public class AllureSlf4jReporter implements IReporter{
 
     @Override
     public void trace(String msg) {
-        LOGGER.trace(msg);
-        if (LOGGER.isTraceEnabled()){
+        logger.trace(msg);
+        if (logger.isTraceEnabled()){
             allureStep(msg);
         }
     }
 
     @Override
     public void trace(String msg, Object... args) {
-        LOGGER.trace(msg, args);
-        if (LOGGER.isTraceEnabled()){
+        logger.trace(msg, args);
+        if (logger.isTraceEnabled()){
             allureStep(msg);
         }
     }
 
     @Override
     public void trace(String msg, Throwable e) {
-        LOGGER.trace(msg, e);
-        if (LOGGER.isTraceEnabled()){
+        logger.trace(msg, e);
+        if (logger.isTraceEnabled()){
             allureStep(msg + " " + e.getMessage());
         }
     }
 
     @Override
     public void debug(String msg) {
-        LOGGER.debug(msg);
-        if (LOGGER.isDebugEnabled()){
+        logger.debug(msg);
+        if (logger.isDebugEnabled()){
             allureStep(msg);
         }
     }
 
     @Override
     public void debug(String msg, Object... args) {
-        LOGGER.debug(msg, args);
-        if (LOGGER.isDebugEnabled()){
+        logger.debug(msg, args);
+        if (logger.isDebugEnabled()){
             allureStep(msg);
         }
     }
 
     @Override
     public void debug(String msg, Throwable e) {
-        LOGGER.debug(msg, e);
-        if (LOGGER.isDebugEnabled()){
+        logger.debug(msg, e);
+        if (logger.isDebugEnabled()){
             allureStep(msg + " " + e.getMessage());
         }
     }
 
     @Override
     public void info(String msg) {
-        LOGGER.info(msg);
-        if (LOGGER.isInfoEnabled()) {
+        logger.info(msg);
+        if (logger.isInfoEnabled()) {
             allureStep(msg);
         }
     }
 
     @Override
     public void info(String msg, Object... args) {
-        LOGGER.info(msg, args);
-        if (LOGGER.isInfoEnabled()) {
+        logger.info(msg, args);
+        if (logger.isInfoEnabled()) {
             allureStep(msg);
         }
     }
 
     @Override
     public void info(String msg, Throwable e) {
-        LOGGER.info(msg, e);
-        if (LOGGER.isInfoEnabled()) {
+        logger.info(msg, e);
+        if (logger.isInfoEnabled()) {
             allureStep(msg + " " + e.getMessage());
         }
     }
 
     @Override
     public void warn(String msg) {
-        LOGGER.warn(msg);
-        if (LOGGER.isWarnEnabled()) {
+        logger.warn(msg);
+        if (logger.isWarnEnabled()) {
             allureStep(msg);
         }
     }
 
     @Override
     public void warn(String msg, Object... args) {
-        LOGGER.warn(msg, args);
-        if (LOGGER.isWarnEnabled()) {
+        logger.warn(msg, args);
+        if (logger.isWarnEnabled()) {
             allureStep(msg);
         }
     }
 
     @Override
     public void warn(String msg, Throwable e) {
-        LOGGER.warn(msg, e);
-        if (LOGGER.isWarnEnabled()) {
+        logger.warn(msg, e);
+        if (logger.isWarnEnabled()) {
             allureStep(msg + " " + e.getMessage());
         }
     }
 
     @Override
     public void error(String msg) {
-        LOGGER.error(msg);
-        if (LOGGER.isErrorEnabled()) {
+        logger.error(msg);
+        if (logger.isErrorEnabled()) {
             allureStep(msg);
         }
     }
 
     @Override
     public void error(String msg, Object... args) {
-        LOGGER.error(msg, args);
-        if (LOGGER.isErrorEnabled()) {
+        logger.error(msg, args);
+        if (logger.isErrorEnabled()) {
             allureStep(msg);
         }
     }
 
     @Override
     public void error(String msg, Throwable e) {
-        LOGGER.error(msg, e);
-        if (LOGGER.isErrorEnabled()) {
+        logger.error(msg, e);
+        if (logger.isErrorEnabled()) {
             allureStep(msg + " " + e.getMessage());
         }
     }
