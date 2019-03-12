@@ -59,6 +59,7 @@
 
 	<properties>
         <aspectj.version>1.9.1</aspectj.version>
+        <allure.version>2.9.0</allure.version>
     </properties>
 
     <dependencies>
@@ -77,7 +78,7 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-java-commons</artifactId>
-            <version>2.6.0</version>
+            <version>${allure.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.google.guava</groupId>

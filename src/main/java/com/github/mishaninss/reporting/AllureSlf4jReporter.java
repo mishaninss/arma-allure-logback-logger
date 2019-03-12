@@ -29,6 +29,8 @@ import java.io.IOException;
 @Component
 public class AllureSlf4jReporter implements IReporter{
     private Logger logger = LoggerFactory.getLogger(AllureSlf4jReporter.class);
+    @Reporter
+    private IReporter reporter;
 
     @Override
     public void setReporterName(String reporterName) {
@@ -56,7 +58,7 @@ public class AllureSlf4jReporter implements IReporter{
             byte[] attachment = FileUtils.readFileToByteArray(new File(pathToFile));
             allureAttachment(attachment, msg, "");
         } catch (IOException e) {
-            e.printStackTrace();
+            reporter.ignoredException(e);
         }
     }
 
